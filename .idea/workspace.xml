@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c4fc233-71b6-4ccf-a16c-13dabff5441c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nachos/threads/LotteryScheduler.java" afterPath="$PROJECT_DIR$/nachos/threads/LotteryScheduler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nachos/userprog/UserKernel.java" afterPath="$PROJECT_DIR$/nachos/userprog/UserKernel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,12 +21,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LotteryScheduler.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/nachos/threads/LotteryScheduler.java">
+      <file leaf-file-name="UserProcess.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nachos/userprog/UserProcess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="72" column="40" lean-forward="false" selection-start-line="72" selection-start-column="40" selection-end-line="72" selection-end-column="40" />
-              <folding />
+            <state relative-caret-position="293">
+              <caret line="51" column="2" lean-forward="false" selection-start-line="51" selection-start-column="2" selection-end-line="66" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -47,6 +48,8 @@
       <find>id</find>
       <find>getthreadstate</find>
       <find>simplefiledescriptor</find>
+      <find>new random</find>
+      <find>freepages</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -61,10 +64,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/nachos/threads/KThread.java" />
-        <option value="$PROJECT_DIR$/nachos/userprog/UserKernel.java" />
         <option value="$PROJECT_DIR$/nachos/userprog/UserProcess.java" />
         <option value="$PROJECT_DIR$/nachos/threads/PriorityScheduler.java" />
         <option value="$PROJECT_DIR$/nachos/threads/LotteryScheduler.java" />
+        <option value="$PROJECT_DIR$/nachos/userprog/UserKernel.java" />
       </list>
     </option>
   </component>
@@ -521,14 +524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nachos/userprog/UserKernel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="820">
-          <caret line="94" column="56" lean-forward="false" selection-start-line="94" selection-start-column="54" selection-end-line="94" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nachos/threads/PriorityScheduler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2220">
@@ -543,21 +538,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nachos/userprog/UserProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="733">
-          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nachos/threads/LotteryScheduler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
           <caret line="72" column="40" lean-forward="false" selection-start-line="72" selection-start-column="40" selection-end-line="72" selection-end-column="40" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nachos/userprog/UserKernel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nachos/userprog/UserProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="51" column="2" lean-forward="false" selection-start-line="51" selection-start-column="2" selection-end-line="66" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

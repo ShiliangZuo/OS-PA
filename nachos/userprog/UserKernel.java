@@ -10,7 +10,7 @@ import java.util.LinkedList;
  * A kernel that can support multiple user processes.
  */
 public class UserKernel extends ThreadedKernel {
-	private static LinkedList<Integer> freePages;
+	private static LinkedList<Integer> freePages = new LinkedList<>();
 
     /**
      * Allocate a new user kernel.
