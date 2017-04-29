@@ -2,6 +2,7 @@ package nachos.threads;
 
 import nachos.machine.*;
 
+import java.util.Random;
 import java.util.TreeSet;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -42,7 +43,93 @@ public class LotteryScheduler extends PriorityScheduler {
      * @return	a new lottery thread queue.
      */
     public ThreadQueue newThreadQueue(boolean transferPriority) {
-	// implement me
-	return null;
+        // implement me
+        //return null;
+        return new LotteryQueue(transferPriority);
+    }
+
+    protected ThreadState getThreadState(KThread thread) {
+        if (thread.schedulingState == null)
+            thread.schedulingState = new ThreadState(thread);
+
+        return (ThreadState) thread.schedulingState;
+    }
+
+    protected class LotteryQueue extends PriorityScheduler.PriorityQueue {
+        LotteryQueue(boolean transferPriority) {
+            super(transferPriority);
+        }
+
+        protected ThreadState pickNextThread() {
+            // implement me
+            ThreadState returnThreadState = null;
+            int sum = 0;
+
+            for (KThread kThread : waitQueue) {
+                ThreadState thisThreadState = getThreadState(kThread);
+                sum += thisThreadState.getEffectivePriority();
+            }
+
+            Random random = new Random;
+            int lotteryValue = random.nextInt(sum) + 1;
+
+            sum = 0;
+
+            for (KThread kThread : waitQueue) {
+                ThreadState thisThreadState = getThreadState(kThread);
+                sum += thisThreadState.getEffectivePriority();
+                if (sum >= lotteryValue) {
+                    returnThreadState = thisThreadState;
+                    break;
+                }
+            }
+
+            return returnThreadState;
+        }
+
+        public int getEffectivePriority() {
+            //added by me
+            if (transferPriority == false)
+                return priorityMinimum;
+            cachedEffectivePriority = priorityMinimum;
+            for (KThread kThread : waitQueue) {
+                int thisEffectivePriority = getThreadState(kThread).getEffectivePriority();
+                /*if (thisEffectivePriority > cachedEffectivePriority)
+                    cachedEffectivePriority = thisEffectivePriority;*/
+                cachedEffectivePriority += thisEffectivePriority;
+            }
+            isQueueDirty = false;
+            return cachedEffectivePriority;
+        }
+    }
+
+
+    protected class ThreadState extends PriorityScheduler.ThreadState {
+        public ThreadState(KThread thread) {
+            super(thread);
+        }
+
+        /**
+         * Return the effective priority of the associated thread.
+         *
+         * @return	the effective priority of the associated thread.
+         */
+        public int getEffectivePriority() {
+            // implement me
+            //return priority;
+
+            if (isThreadDirty) {
+                cachedEffectivePriority = this.priority;
+                for (ThreadQueue queue : resources) {
+                    int thisQueueEffectivePriority = ((PriorityQueue) queue).getEffectivePriority();
+                    /*if (thisQueueEffectivePriority > this.cachedEffectivePriority) {
+                        cachedEffectivePriority = thisQueueEffectivePriority;
+                    }*/
+                    cachedEffectivePriority += thisQueueEffectivePriority;
+                }
+            }
+            isThreadDirty = false;
+            return cachedEffectivePriority;
+        }
     }
 }

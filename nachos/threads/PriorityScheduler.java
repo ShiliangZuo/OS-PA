@@ -130,13 +130,13 @@ public class PriorityScheduler extends Scheduler {
 		 */
 		public boolean transferPriority;
 
-		private int cachedEffectivePriority = priorityMinimum;
+		protected int cachedEffectivePriority = priorityMinimum;
 
-		private ThreadState holder = null;
+		protected ThreadState holder = null;
 
-		private boolean isQueueDirty = false;
+		protected boolean isQueueDirty = false;
 
-		private LinkedList<KThread> waitQueue = new LinkedList<KThread>();
+		protected LinkedList<KThread> waitQueue = new LinkedList<KThread>();
 
 		PriorityQueue(boolean transferPriority) {
 			this.transferPriority = transferPriority;

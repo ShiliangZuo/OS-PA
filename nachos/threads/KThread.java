@@ -640,8 +640,8 @@ public class KThread {
 	//test_condition2();
 	//test_Alarm();
 	//test_communicator();
-	//test_Priority();
-	test_Boat();
+	test_Priority();
+	//test_Boat();
     }
 
     private static final char dbgThread = 't';
