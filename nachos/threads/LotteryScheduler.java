@@ -70,7 +70,7 @@ public class LotteryScheduler extends PriorityScheduler {
                 sum += thisThreadState.getEffectivePriority();
             }
 
-            Random random = new Random;
+            Random random = new Random();
             int lotteryValue = random.nextInt(sum) + 1;
 
             sum = 0;
